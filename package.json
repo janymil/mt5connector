@@ -1,0 +1,21 @@
+{
+  "name": "mt5connector",
+  "version": "1.0.0",
+  "description": "MetaTrader 5 Account Statistics and EA Performance Analytics",
+  "private": true,
+  "scripts": {
+    "install:all": "npm --prefix server install && npm --prefix client install",
+    "build": "npm --prefix client run build",
+    "start": "node server/index.js",
+    "dev": "node server/index.js"
+  },
+  "keywords": [
+    "metatrader",
+    "mt5",
+    "trading",
+    "statistics",
+    "analytics"
+  ],
+  "author": "",
+  "license": "ISC"
+}

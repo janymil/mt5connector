@@ -1,0 +1,39 @@
+INSTRUCTIONS: HOW TO CONNECT YOUR METATRADER 5 ACCOUNT TO THE DASHBOARD
+
+Step 1: Get your Personal API Key from the Dashboard
+--------------------------------------------------
+1. Open your browser and navigate to https://mt5connector.uk
+2. Sign in to your account (or click "Sign Up" to create a new free account).
+3. In the top right corner of the dashboard, copy your unique "API Key" string.
+
+Step 2: Authorize the Dashboard URL in MT5 Options
+--------------------------------------------------
+By default, MetaTrader 5 blocks outbound internet connections. You must whitelist the server domain:
+1. Open your MetaTrader 5 terminal.
+2. Go to Tools -> Options (or press Ctrl+O).
+3. Click on the Expert Advisors tab.
+4. Check the box "Allow WebRequest for listed URL:".
+5. Double-click "<add new URL...>" and type:
+   https://mt5connector.uk
+6. Click OK.
+
+Step 3: Run the Expert Advisor (EA)
+-----------------------------------
+1. Press F4 in MT5 (or go to Tools -> MetaQuotes Language Editor).
+2. Open AccountStatsConnector.mq5 located in your workspace:
+   mql5\AccountStatsConnector.mq5
+3. Click "Compile" (or press F7). Ensure compiler shows "0 errors, 0 warnings".
+4. Go back to MetaTrader 5. In the Navigator panel (Ctrl+N), expand Expert Advisors.
+5. Drag and drop "AccountStatsConnector" onto any chart.
+6. In the inputs dialog:
+   - InpApiKey: Paste your personal API Key from Step 1.
+   - InpServerURL: Set to https://mt5connector.uk/api/sync
+   - InpSyncIntervalMinutes: 30 (or your preferred auto-sync frequency).
+7. Click OK and ensure "Algo Trading" is toggled ON (green icon) in MT5 top toolbar.
+
+Step 4: Verify the Sync
+-----------------------
+1. Open the Experts log tab in MT5 (Ctrl+T -> Experts tab).
+2. You will see: "AccountStatsConnector: Sync succeeded. Server response: {"success":true,...}"
+3. Refresh your dashboard at https://mt5connector.uk.
+4. Your account balance, trades, win rates, and EA performance metrics will appear live!
